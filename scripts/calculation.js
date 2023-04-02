@@ -1,5 +1,4 @@
 // iPhone Calculation
-
 function iPhonePlusMinus(condition) {
     let iphoneQuantity = document.getElementById('iphone-quantity');
     let iphoneQuantityValue = iphoneQuantity.value;
@@ -14,8 +13,7 @@ function iPhonePlusMinus(condition) {
     }
 }
 
-// iPhone Case Calculation
-
+// iPhoneCase Calculation
 function iPhoneCasePlusMinus(condition) {
     let iphoneCaseQuantity = document.getElementById('iphone-case-quantity');
     let iphoneCaseQuantityValue = iphoneCaseQuantity.value;
@@ -29,3 +27,8 @@ function iPhoneCasePlusMinus(condition) {
         iphoneCaseQuantity.value = iphoneCaseQuantityMinus;
     }
 }
+
+// iPhone Quantity Plus
+document.getElementById('iphone-quantity-plus').addEventListener('click', function(){
+    iPhonePlusMinus(true);
+})
