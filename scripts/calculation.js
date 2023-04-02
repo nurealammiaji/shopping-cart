@@ -32,3 +32,8 @@ function iPhoneCasePlusMinus(condition) {
 document.getElementById('iphone-quantity-plus').addEventListener('click', function(){
     iPhonePlusMinus(true);
 })
+
+// iPhone Quantity Minus
+document.getElementById('iphone-quantity-minus').addEventListener('click', function(){
+    iPhonePlusMinus(false);
+})
