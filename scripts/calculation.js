@@ -14,6 +14,13 @@ function subTotalCalculation() {
     let subTotal = document.getElementById('sub-total');
     subTotal.innerText = subTotalPrice;
 
+    let tax = document.getElementById('tax');
+    let taxString = tax.innerText;
+    let taxNumeric = parseFloat(taxString);
+
+    let total = document.getElementById('total');
+    total.innerText = taxNumeric + subTotalPrice;
+
 }
 
 // iPhone Calculation
