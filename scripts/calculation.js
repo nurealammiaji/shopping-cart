@@ -1,3 +1,21 @@
+// Subtotal Calculation
+function subTotalCalculation() {
+
+    let iphonePrice = document.getElementById('iphone-price');
+    let iphonePriceString = iphonePrice.innerText;
+    let iphonePriceNumeric = parseInt(iphonePriceString);
+
+    let iphoneCasePrice = document.getElementById('iphone-case-price');
+    let iphoneCasePriceString = iphoneCasePrice.innerText;
+    let iphoneCasePriceNumeric = parseInt(iphoneCasePriceString);
+
+    let subTotalPrice = iphonePriceNumeric + iphoneCasePriceNumeric;
+
+    let subTotal = document.getElementById('sub-total');
+    subTotal.innerText = subTotalPrice;
+
+}
+
 // iPhone Calculation
 
 function iPhonePlusMinus(condition) {
@@ -7,8 +25,6 @@ function iPhonePlusMinus(condition) {
     let iphoneQuantityValueNumeric = parseInt(iphoneQuantityValue);
 
     let iphonePrice = document.getElementById('iphone-price');
-    let iphonePriceString = iphonePrice.innerText;
-    let iphonePriceNumeric = parseInt(iphonePriceString);
 
     if(condition === true) {
         let iphoneQuantityPlus = iphoneQuantityValueNumeric + 1;
@@ -36,33 +52,46 @@ function iPhoneCasePlusMinus(condition) {
     let iphoneCaseQuantityValue = iphoneCaseQuantity.value;
     let iphoneCaseQuantityValueNumeric = parseInt(iphoneCaseQuantityValue);
 
+    let iphoneCasePrice = document.getElementById('iphone-case-price');
+
     if(condition === true) {
         let iphoneCaseQuantityPlus = iphoneCaseQuantityValueNumeric + 1;
         iphoneCaseQuantity.value = iphoneCaseQuantityPlus;
+
+        let iphoneCasePricePlus = 59 * iphoneCaseQuantityPlus;
+        iphoneCasePrice.innerText= iphoneCasePricePlus;
     }
     else {
         let iphoneCaseQuantityMinus = iphoneCaseQuantityValueNumeric - 1;
         iphoneCaseQuantity.value = iphoneCaseQuantityMinus;
+
+        let iphoneCasePriceMinus = 59 * iphoneCaseQuantityMinus;
+        iphoneCasePrice.innerText= iphoneCasePriceMinus;
     }
 }
+
 
 // iPhone Quantity Plus
 document.getElementById('iphone-quantity-plus').addEventListener('click', function(){
     iPhonePlusMinus(true);
+    subTotalCalculation();
 })
 
 // iPhone Quantity Minus
 document.getElementById('iphone-quantity-minus').addEventListener('click', function(){
     iPhonePlusMinus(false);
+    subTotalCalculation();
 })
 
 // iPhoneCase Quantity Plus
 document.getElementById('iphone-case-quantity-plus').addEventListener('click', function(){
     iPhoneCasePlusMinus(true);
+    subTotalCalculation();
 })
 
 // iPhoneCase Quantity Minus
 document.getElementById('iphone-case-quantity-minus').addEventListener('click', function(){
     iPhoneCasePlusMinus(false);
+    subTotalCalculation();
 })
 
